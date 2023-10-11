@@ -64,9 +64,6 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-    }
-
     public int getAge() {
         return age;
     }
