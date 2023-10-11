@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class RoleServiceImpl implements RoleService {
 
     private RoleRepo roleRepo;
@@ -32,7 +32,7 @@ public class RoleServiceImpl implements RoleService {
         return new HashSet<>(roleRepo.findAll());
     }
 
-
+    @Transactional
     @Override
     public void addRole(Role role) {
         roleRepo.save(role);
