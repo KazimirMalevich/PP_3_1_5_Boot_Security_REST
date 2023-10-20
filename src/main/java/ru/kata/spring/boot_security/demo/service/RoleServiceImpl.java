@@ -8,6 +8,7 @@ import ru.kata.spring.boot_security.demo.repositories.RoleRepo;
 import ru.kata.spring.boot_security.demo.entity.Role;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Service
@@ -29,7 +30,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Set<Role> allRoles() {
-        return new HashSet<>(roleRepo.findAll());
+        return new LinkedHashSet<>(roleRepo.findAll());
     }
 
     @Transactional
