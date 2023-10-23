@@ -34,14 +34,7 @@ public class MyRESTController {
     }
 
     @GetMapping(value = "admin")
-    public String allUsers(ModelMap model) {
-        model.addAttribute("users", userService.getAllUsers());
-        User user = new User();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User authUser = userService.getUserByUsername(auth.getName());
-        model.addAttribute("user", user);
-        model.addAttribute("roless", roleService.allRoles());
-        model.addAttribute("authUser", authUser);
+    public String allUsers() {
         return "adminPage";
     }
 
@@ -51,11 +44,7 @@ public class MyRESTController {
     }
 
     @GetMapping(value = "user")
-    public String enterUser(ModelMap model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User authUser = userService.getUserByUsername(auth.getName());
-        model.addAttribute("authUser", authUser);
-        System.out.println(authUser);
+    public String enterUser() {
         return "userPage2";
     }
 
